@@ -50,6 +50,7 @@
   
   <ItemGroup>
     <ProjectReference Include="..\Premium PCF.pcfproj" />
+    <ProjectReference Include="..\PremiumPhoneFormatter\PremiumPhoneFormatter.pcfproj" />
   </ItemGroup>
 
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />

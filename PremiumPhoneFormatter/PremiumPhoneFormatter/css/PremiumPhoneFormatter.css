@@ -1,0 +1,291 @@
+/* Premium Phone Formatter - Main Container */
+.premium-phone-formatter {
+    display: flex;
+    align-items: stretch;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background-color: #ffffff;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    height: 40px;
+}
+
+.premium-phone-formatter.focused {
+    border-color: #0078d4;
+    box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.1);
+}
+
+.premium-phone-formatter.disabled {
+    background-color: #f3f4f6;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Country Dropdown Container */
+.country-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Country Selector Button */
+.country-selector {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background-color: #f9fafb;
+    border: none;
+    border-right: 1px solid #d1d5db;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    transition: background-color 0.15s ease;
+    white-space: nowrap;
+    min-width: 90px;
+}
+
+.country-selector:hover:not(:disabled) {
+    background-color: #f3f4f6;
+}
+
+.country-selector:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.country-selector:focus {
+    outline: none;
+}
+
+.country-flag {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.dial-code {
+    color: #111827;
+    font-weight: 600;
+}
+
+.dropdown-arrow {
+    font-size: 10px;
+    color: #6b7280;
+    transition: transform 0.2s ease;
+}
+
+.country-dropdown.open .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* Dropdown List */
+.dropdown-list {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    z-index: 1000;
+    min-width: 280px;
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    animation: dropdown-slide-in 0.15s ease-out;
+}
+
+@keyframes dropdown-slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Dropdown List Scrollbar */
+.dropdown-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.dropdown-list::-webkit-scrollbar-track {
+    background: #f9fafb;
+    border-radius: 0 8px 8px 0;
+}
+
+.dropdown-list::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 4px;
+}
+
+.dropdown-list::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+/* Dropdown Items */
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item:hover {
+    background-color: #f9fafb;
+}
+
+.dropdown-item:active {
+    background-color: #f3f4f6;
+}
+
+.dropdown-item .country-flag {
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.dropdown-item .dial-code {
+    color: #374151;
+    font-weight: 600;
+    min-width: 50px;
+}
+
+.dropdown-item .country-name {
+    color: #6b7280;
+    font-size: 14px;
+    flex-grow: 1;
+}
+
+/* Phone Input */
+.phone-input {
+    flex: 1;
+    padding: 8px 14px;
+    border: none;
+    background-color: transparent;
+    font-size: 15px;
+    font-weight: 500;
+    color: #111827;
+    outline: none;
+    min-width: 0;
+}
+
+.phone-input::placeholder {
+    color: #9ca3af;
+    font-weight: 400;
+}
+
+.phone-input:disabled {
+    cursor: not-allowed;
+    background-color: transparent;
+}
+
+/* Mobile Responsive */
+@media (max-width: 640px) {
+    .dropdown-list {
+        min-width: 260px;
+    }
+    
+    .country-selector {
+        min-width: 80px;
+        padding: 6px 10px;
+    }
+    
+    .phone-input {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .premium-phone-formatter {
+        border-width: 2px;
+    }
+    
+    .premium-phone-formatter.focused {
+        border-width: 3px;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .premium-phone-formatter,
+    .country-selector,
+    .dropdown-arrow,
+    .dropdown-item {
+        transition: none;
+    }
+    
+    .dropdown-list {
+        animation: none;
+    }
+}
+
+/* Dark Mode Support (Optional) */
+@media (prefers-color-scheme: dark) {
+    .premium-phone-formatter {
+        background-color: #1f2937;
+        border-color: #4b5563;
+    }
+    
+    .premium-phone-formatter.focused {
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    }
+    
+    .country-selector {
+        background-color: #374151;
+        border-right-color: #4b5563;
+        color: #f3f4f6;
+    }
+    
+    .country-selector:hover:not(:disabled) {
+        background-color: #4b5563;
+    }
+    
+    .dropdown-list {
+        background-color: #1f2937;
+        border-color: #4b5563;
+    }
+    
+    .dropdown-item {
+        border-bottom-color: #374151;
+    }
+    
+    .dropdown-item:hover {
+        background-color: #374151;
+    }
+    
+    .dropdown-item:active {
+        background-color: #4b5563;
+    }
+    
+    .phone-input {
+        color: #f3f4f6;
+    }
+    
+    .phone-input::placeholder {
+        color: #6b7280;
+    }
+    
+    .dial-code {
+        color: #f9fafb;
+    }
+    
+    .dropdown-item .dial-code {
+        color: #f3f4f6;
+    }
+    
+    .dropdown-item .country-name {
+        color: #9ca3af;
+    }
+}

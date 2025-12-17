@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="PremiumPCF" constructor="PremiumPhoneFormatter" version="1.0.0" display-name-key="PremiumPhoneFormatter_Display_Key" description-key="PremiumPhoneFormatter_Desc_Key" control-type="standard">
+    <external-service-usage enabled="false" />
+    
+    <!-- Bound property - the phone number value -->
+    <property name="phoneNumber" display-name-key="PhoneNumber_Display_Key" description-key="PhoneNumber_Desc_Key" of-type="SingleLine.Text" usage="bound" required="true" />
+    
+    <!-- Format pattern using regex-friendly syntax (e.g., "(###) ###-####" or "###-###-####" or "##########") -->
+    <property name="formatPattern" display-name-key="FormatPattern_Display_Key" description-key="FormatPattern_Desc_Key" of-type="SingleLine.Text" usage="input" required="false" default-value="(###) ###-####" />
+    
+    <!-- Allowed country codes (comma-separated ISO codes, e.g., "US,CA,GB" or leave empty for all) -->
+    <property name="allowedCountryCodes" display-name-key="AllowedCountryCodes_Display_Key" description-key="AllowedCountryCodes_Desc_Key" of-type="SingleLine.Text" usage="input" required="false" />
+    
+    <!-- Default country code (ISO code, e.g., "US") -->
+    <property name="defaultCountryCode" display-name-key="DefaultCountryCode_Display_Key" description-key="DefaultCountryCode_Desc_Key" of-type="SingleLine.Text" usage="input" required="false" default-value="US" />
+    
+    <!-- Show/hide country flag icons -->
+    <property name="showCountryFlags" display-name-key="ShowCountryFlags_Display_Key" description-key="ShowCountryFlags_Desc_Key" of-type="TwoOptions" usage="input" required="false" default-value="true" />
+    
+    <!-- Placeholder text -->
+    <property name="placeholderText" display-name-key="PlaceholderText_Display_Key" description-key="PlaceholderText_Desc_Key" of-type="SingleLine.Text" usage="input" required="false" default-value="Enter phone number" />
+    
+    <resources>
+      <code path="index.ts" order="1"/>
+      <css path="css/PremiumPhoneFormatter.css" order="1" />
+    </resources>
+    <!-- UNCOMMENT TO ENABLE THE SPECIFIED API
+    <feature-usage>
+      <uses-feature name="Device.captureAudio" required="true" />
+      <uses-feature name="Device.captureImage" required="true" />
+      <uses-feature name="Device.captureVideo" required="true" />
+      <uses-feature name="Device.getBarcodeValue" required="true" />
+      <uses-feature name="Device.getCurrentPosition" required="true" />
+      <uses-feature name="Device.pickFile" required="true" />
+      <uses-feature name="Utility" required="true" />
+      <uses-feature name="WebAPI" required="true" />
+    </feature-usage>
+    -->
+  </control>
+</manifest>
