@@ -1,0 +1,70 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build PCF Control",
+            "type": "shell",
+            "command": "npm",
+            "args": ["run", "build"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$tsc"],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Start Test Harness",
+            "type": "shell",
+            "command": "npm",
+            "args": ["start"],
+            "isBackground": true,
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Watch Mode",
+            "type": "shell",
+            "command": "npm",
+            "args": ["start", "watch"],
+            "isBackground": true,
+            "problemMatcher": ["$tsc-watch"],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Build Solution",
+            "type": "shell",
+            "command": "msbuild",
+            "args": ["/t:build", "/restore"],
+            "options": {
+                "cwd": "${workspaceFolder}/Solutions"
+            },
+            "group": "build",
+            "problemMatcher": ["$msCompile"],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Clean",
+            "type": "shell",
+            "command": "npm",
+            "args": ["run", "clean"],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        }
+    ]
+}
