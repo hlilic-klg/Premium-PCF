@@ -5,17 +5,33 @@
 ## Overview
 Premium PCF is a collection of high-quality, commercial-grade PowerApps Component Framework (PCF) controls designed to enhance your Power Platform applications.
 
+## 📦 Available Controls
+
+### Premium Phone Formatter v1.0
+**Status**: ✅ Production Ready | **Price**: $149
+
+A beautiful, highly configurable international phone number input control with:
+- 🌍 30+ countries with dial codes and flags
+- 🎨 Customizable format patterns (e.g., `(###) ###-####`)
+- 🔒 Respects form read-only state (solves common PCF issue)
+- 📱 Mobile responsive with dark mode support
+- ♿ WCAG 2.1 AA accessible
+
+[View Documentation](./PremiumPhoneFormatter/README.md) | [Live Demo](#)
+
+---
+
 ## Project Structure
 ```
 Premium PCF/
-├── .github/                    # GitHub configuration and Copilot instructions
-├── Solutions/                  # Power Platform solution for packaging
-├── SampleControl/             # Your first PCF control (rename as needed)
-│   ├── index.ts              # Main control implementation
-│   ├── ControlManifest.Input.xml  # Control metadata and properties
-│   └── css/                  # Control styles
-├── package.json              # Node dependencies
-└── pcfproj.json             # PCF project configuration
+├── .github/                          # GitHub configuration and Copilot instructions
+├── Solutions/                        # Power Platform solution for packaging
+├── PremiumPhoneFormatter/           # ✨ Premium Phone Formatter control
+├── SampleControl/                   # Sample/template control
+├── CONTROL_IDEAS.md                 # Market research and ideas
+├── DEVELOPMENT_GUIDE.md             # Development workflow guide
+├── LAUNCH_CHECKLIST.md              # Product launch checklist
+└── README.md                        # This file
 ```
 
 ## Getting Started
